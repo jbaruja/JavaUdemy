@@ -1,0 +1,484 @@
+##############################################################################################
+***********   DUVIDAS   ******************
+
+
+Configure "Unused Assignment" Hint
+AlturaMedialinha 18
+
+Executando uma tarefa em que apresenta um erro porque o usuario digitou uma opção inválida, gero a resposta de opção inválida e
+como indico ao programa de qual parte do processo repetir
+ou seja, qual pergunta gerar novamente.
+
+
+
+
+
+
+
+
+
+
+
+
+#############################################
+
+
+
+
+
+
+public class Animal {
+	String nome  <-- "nome" é um Atributo do tipo String 
+}
+
+
+Obs: Atributos e Métodos são chamados de membros 
+
+__________________________________________________
+
+
+******************************************************************
+COMPORTAMENTO DA CLASSE
+******************************************************************
+
+
+getNome e setNome definem o comportamento da minha classe
+
+ public String getNome() {  <-- getNome retorna o valor que se 	
+ 								encontra na propriedade nome
+ 	return nome;
+ }
+
+ public void setNome(String novoNome){   <-- setNome possibilita 
+ 											atribuir um novo nome
+ 	nome = novoNome;
+ }
+
+__________________________________________________________________
+
+
+******************************************************************
+COMENTÁRIOS
+******************************************************************
+
+//comentário em uma única linha (single-line)
+
+/*
+* comentário em múltiplas linhas (multi-line)
+*/
+
+/**
+*comentário Javadoc
+* @author Home
+*/
+
+________________________________________________________
+
+
+****************************************************************
+CLASSES X ARQUIVOS
+****************************************************************
+para criar uma classe do tipo public precisa ter o mesmo nome do arquivo .java 
+
+public class Animal {     <-- o nome do arquivo é = ao nome da classe
+	String nome;
+}
+class Animal12 {
+	
+}
+
+Nome do Arquivo: Animal.java 
+
+________________________________________
+
+
+*****************************************************************
+Método main
+*****************************************************************
+
+public class Zoologico {
+	public static void main(String[] args) {  <-- ele não retorna
+												nada (void), deve ser público, estático não obriga a ter criado um objeto, pertence a classe Zoologico. Ele recebe uma rede de Strings com argumentos
+
+	}
+}
+
+
+Compilar a classe Zoologico 
+
+$ javac Zoologico.java  <-- Ao compilar, é criado um arquivo 
+							Zoologico.class (Bytecode)
+$ java Zoologico	<-- Ao dar o comando é executado o arquivo .class
+
+____________________________________________________________________
+
+
+public class Zoologico {
+	public static void main (String args[]) {
+	System.out.println(args[0]);
+	System.out.println(args[1]);
+	}
+}
+
+
+
+
+
+public class Zoologico {
+	public static void main (String ...args) {  <-- 3 pontos 
+												chamados de varargs
+	System.out.println(args[0]);
+	System.out.println(args[1]);
+	}
+}
+
+
+********************************************************************
+IMPORTANDO classes / pacotes
+********************************************************************
+
+import java.util.Random;
+public class Zoologico {
+	public staticvoid main (String[] args){
+		Random r = new Random();
+		System.out.println(r.nextInt(10));
+	}
+}
+
+--> Saída inteiro entre 0 e 9
+
+-> também pode ser utilizado Wildcards
+import java.util.*;   <-- O * é chamado de Wildcard, com isso é 
+						possivel utilizar qualquer classe que está definida dentro desse pacote
+
+
+
+******************************************************************
+Imports Redundantes
+******************************************************************
+import java.lang.System;  --> System se encontra em lang, que já
+							é importada por padrão)
+import java.lang.*;		  --> mesmo cenário de cima
+import java.util.Random;  --> abaixo está sendo importada toda a 
+							pasta util.
+import java.util.*;
+public class ImportExample {
+	public static void main (String[] args) {
+		Randomr r = new Random();
+		System.out.println(r.nextInt(10));
+
+	}
+}
+
+IMPORTS CONVENCIONAIS SÃO SOMENTE PARA CLASSES
+
+
+
+******************************************************************
+Conflito de nome
+******************************************************************
+import ?
+public class Conflitos {
+	Date data;
+}
+
+Classe Date existe em dois pacotes, precisa definir qual utilizar
+
+* java.util.*; ou
+* java.sql.*;
+
+_______________________________________________
+
+import java.util.*;
+import java.sql.*;
+public class Conflitos {
+	Date data;
+}
+
+Erro na linha 4: The type Date is ambiguous
+
+como foi importado classes dos pacotes util e sql e ambos contém a classe Date o JVM não decide qual Date utilizar 
+
+
+_______________________________________________
+
+import java.util.Date;
+import java.sql.*;
+public class Conflitos {
+	Date data;
+}
+
+Warning na linha 2: The impoort java.sql is never used
+
+na primeira importação foi definida a classe então é priorizada a utilização desse pacote.
+Obtém um Warning pois a importação da linha 2 não está sendo utilizada 
+
+
+______________________________________________
+
+import java.util.Date;
+import java.sql.Date;
+public class Conflitos {
+	Date data;
+}
+
+Erro na linha 2: The import java.sql.Date collides with another import statement
+
+No cenário que for preciso a importação das duas Date 
+é possível definir na linha 4 a origem do Date a utilizar:
+java.util.Date data;
+
+
+
+
+
+
+******************************************************************
+ORDEM DE INICIALIZAÇÃO
+*******************************************************************
+
+public class Ovo {
+	public Ovo() {    <-- Construtor, inicializa debaixo do
+		numero = 5;		construtor, realiza as tarefas e por último 
+	}					realiza a tarefa dentro do construtor. Com
+						isso, resultado será 5
+		
+	}
+	public static void main (String[] args) {
+		Ovo o = new Ovo ();
+		System.out.println(o.numero);
+	}
+	private int numero = 3;
+	{numero = 4 ;}
+
+}
+
+
+
+
+******************************************************************
+DIFERENCIANDO REF A OBJETOS DE TIPOS PRIMITIVOS
+*******************************************************************
+
+Palavra Reservada	Tipo 						Exemplos
+ boolean			verdadeiro ou falso			true; false
+ byte				valor inteiro de 8-bits		-128; 127
+ short				valor inteiro de 16-bits	32767
+ int 				valor inteiro de 32-bits	2147483647
+ long				valor inteiro de 64-bits	2147483648L
+ float				valor de ponto flutuante
+ 					de 32-bits					2147483648.45f
+double				valor de ponto flutuante
+					de 64-bits					2147483648.45
+char				valor Unicode de 16-bits	'a'
+
+
+
+
+******************************************************************
+TIPO DE REFERÊNCIA
+*******************************************************************
+Referências não guardam valores de um objeto, mas apontam para um endereço na memória.
+
+
+
+
+**********************************************
+RESOLVER SAIDA EM FORMATO DO PC
+**********************************************
+o console sempre devolve os decimais em formato do PC
+corrige com
+
+Locale.setDefault(Locale.US)
+____________________________________________
+
+
+
+**********************************************
+CONCATENAR prinf vários elementos (interpolados)
+**********************************************
+
+%f   ponto flutuante
+%d   inteiro
+%s   texto
+%n   quebra de linha
+
+____________________________________________
+
+
+
+**********************************************
+Ler registro /resposta do usuário SCANNER
+**********************************************
+
+Scanner teclado = new Scanner(System.in);
+
+teclado.next();  //quando trata de String
+teclado.nextFloat(); //quando trata de uma Flutuante
+teclado.nextInt(); //quando trata de um valor inteiro
+char letra = teclado.next().charAt(0); //quando trata de um caracter
+
+
+____________________________________________
+
+
+
+**********************************************
+ESTRUTURA DE LAÇO / REPETIÇÃO FOR
+**********************************************
+
+for (inicialização; condição de execução; incremento/decremento)
+	diretiva;
+
+o primeiro campo (um contador) Ex: int i = 0
+o segundo campo quantas x será executada Ex: i<10
+o terceiro campo contando as repetições Ex:  i++ ou i--
+
+
+
+ESTRUTURA WHILE
+while (expressão_lógica)
+   diretiva;
+boolean chave = true
+while(chave == true)
+// executa as tarefas
+System.out.println("Imprime!");
+chave = false  //modifica a variável e suspende o laço
+
+
+a diferença entre estes laços é que a while compara a condição antes de executar podendo não ser executada
+do/while compara após a execução da primeira execução, tendo executado a tarefa pelo menos 1 vez 
+
+
+ESTRUTURA DO/WHILE
+do {
+ diretiva;
+ } while (expressão_lógica)
+boolean chave = false
+do{
+	//outra instrução qualquer
+	System.out.println("Imprime!");
+}while(chave == true) //suspende o laço
+
+____________________________________________
+
+
+
+**********************************************
+ESTRUTURA DE DESVIO DE FLUXO IF ELSE
+**********************************************
+Estrutura IF/ELSE
+public class DesvioDeFluxoIfElse {
+
+    public static void main(String[] args) {
+        for (int i = 1; i   <= 20; i++) {
+            if (i % 2 == 0) {
+                System.out.println(i + " é par!");
+            } else {
+                System.out.println(i + " é impar!");
+            }
+        }
+    }
+
+}
+
+indicar uma resposta para dois cenários utilizando &&
+
+public static void main(String[]args){
+        for(int i =0; i<10;i++){
+            if(i>=5 && i<=7){
+                System.out.println(i+" funcionou!");
+            }else
+                System.out.println(i +" .");
+            }
+        }
+
+não esquecer que If Else podem ser combinados em várias condições
+
+public static voi main(String[] args){
+	int x = 1;
+	if(x == 1){
+		System.out.println("ok no primeiro!");
+
+	}else if(x == 2){
+		System.out.println("Ok na segunda tentativa");
+
+	}else {
+		System.out.println("dessa vez não foi...");
+	}
+	
+}
+
+
+____________________________________________
+
+
+
+**********************************************
+ESTRUTURA de desvio múltiplo Switch / Case
+**********************************************
+switch(variavel){
+	case valor1:diretiva1;
+	break;
+	case valor2:diretiva2;
+	break;
+	default:diretiva_default;
+}
+
+
+
+
+**********************************************
+PRECEDENCIA DE EXECUÇÃO
+**********************************************
+ORDEM DE EXECUÇÃO DOS OPERADORES ARIMETICOS
+
+Operador 	Significado
++ 		adição
+- 		subtração
+*		multiplicação
+/		divisão
+%		resto da divisão ("mod")
+
+Precedência  	1ro * / %
+
+		2do + -
+
+quando está em (parentesis) executa primeiro
+quando tem a mesma precedência, executa da esquerda para a direita
+
+
+
+
+**********************************************
+EXPRESSÕES LÓGICAS
+**********************************************
+Condicional E (&&) exige que todas as condições sejam verdadeiras
+
+x = 5
+X = 3 && X < 5 			resultado Falso			
+X < 3 && X == 5 && X !=2 	resultado verdadeiro
+
+
+Condicional OU (||) exige que pelo menos uma das condições seja verdadeira
+
+x = 5
+
+X == 10 || X <= 20      	resultado verdadeiro
+X > 0 || X != 3 		resultado verdadeiro
+X <= 0 || x != 3 || x != 5  	resultado verdadeiro
+
+
+Condicional NAO (!) inverte as condicionais
+
+x = 5
+
+!(X ==10)   --> resultado Verdadeiro
+    F
+
+!(X >= 2)   --> resultado Falso
+    V
+
+!(X <=20) && X ==10)  resultado verdadeiro
+   V 	      F
+       F
