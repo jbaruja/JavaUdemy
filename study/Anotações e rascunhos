@@ -482,3 +482,16 @@ x = 5
 !(X <=20) && X ==10)  resultado verdadeiro
    V 	      F
        F
+
+
+
+**********************************************
+OPERADORES DE ATRIBUIÇÃO CUMULATIVA
+**********************************************
+	equivale a
+a += b;		a = a + b;
+a -= b;		a = a - b;
+a *= b;		a = a * b;
+a /= b;		a = a / b;
+a %= b;		a = a % b;
+
