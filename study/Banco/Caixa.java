@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Objetivo de simular transações bancárias como, deposito, saque, saldo.
  *
- * @author home NÃO ESTÁ TERMINADA
+ * @author home 
  */
 public class Caixa {
 
@@ -41,7 +41,7 @@ public class Caixa {
                         
                     } else if (continuidade == 2) {
                         System.out.println("Digite o valor a depositar:");
-                        deposito = teclado.nextDouble(); // bloquear digitos de valores negativos
+                        deposito = teclado.nextDouble(); // ver como bloquear digitos de valores negativos
 
                         saldo = saldo + deposito;
 
@@ -76,7 +76,6 @@ public class Caixa {
 
                             System.out.println("Gostaria de verificar o saldo atual?");
                             System.out.printf("Digite a opção:%n1 - Saldo%n0 - Sair%n");
-                            System.out.println("Obs: chave " + continuidade);
                             continuidade = teclado.nextDouble();
                             
                             if (continuidade < 0 || continuidade > 1) {
