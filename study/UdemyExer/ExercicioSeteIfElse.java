@@ -1,4 +1,4 @@
-package br.com.jorge.study.UdemyExer.MateriaisDesafios;
+package br.com.jorge.study.UdemyExer;
 
 import java.util.Locale;
 import java.util.Scanner;

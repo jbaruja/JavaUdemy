@@ -1,5 +1,5 @@
 
-package br.com.jorge.study.UdemyExer.MateriaisDesafios;
+package br.com.jorge.study.UdemyExer;
 
 import java.util.Scanner;
 

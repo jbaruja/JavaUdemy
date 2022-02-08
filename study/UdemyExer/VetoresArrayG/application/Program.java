@@ -32,12 +32,20 @@ public class Program {
         }
         System.out.println();
         System.out.println("Quartos ocupados");
-        for(int i = 0; i < quartosdisp; i++){
+        for(int i = 0; i < vect.length; i++){
             if(vect[i] != null){
                 System.out.println(i + ": " + vect[i] );
                 
             }
         }
+        
+        System.out.println("-----------------------------------------");
+        
+        //for( quartos : vect){
+            //como mostrar os numeros de quartos vect?
+            
+            
+        //}
         
     }
 }

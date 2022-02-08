@@ -527,3 +527,49 @@ System.out.println("replace('a', 'x'): -" + s06 + "-");
 System.out.println("replace('abc', 'xy'): -" + s07 + "-");
 System.out.println("Index of 'bc': " + i);
 System.out.println("Last index of 'bc': " + j);
+
+
+
+• Toda classe em Java é uma subclasse da classe Object
+Object possui os seguintes métodos:
+getClass- retorna o tipo do objeto
+equals - compara se o objeto é igual a outro
+hashCode - retorna um código hash do objeto
+toString - converte o objeto para string
+
+
+
+**********************************************
+PADRÃO DE NOMES EM JAVA
+**********************************************
+
+
+CLASSES :  primeira letra de cada palavra interna em maiúscula
+CONSTANTES :  tudo em maiúscula, se tiver mais de uma palavra junta com Underline
+METODOS : Deven ser verbos com letra ḿinuscula, e 1ra de cada letra em maiúscula
+
+**********************************************
+ENCAPSULAMENTO
+**********************************************
+Métodos ficam depois dos construtores
+
+**********************************************
+Wrapper Classes
+**********************************************
+um tipo primitivo não aceita valor null
+para isso é possivel utilizar Wrapper classes 
+eles começam com maiúscula
+Ex: 
+public String Double;
+public Double datanascimento; //em substituição do "double" dessa maneira é possivel deixar o campo em branco
+public Integer quantity; // mesma situação em lugar do "int"
+
+boolen Boolean
+char Character
+byte Byte
+short Short
+int Integer
+long Long
+float Float
+double Double
+
