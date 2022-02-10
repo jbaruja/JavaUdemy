@@ -68,14 +68,14 @@ public class Program {
 
     }
 
-    static Integer position(List<Employee> list, int id) {
+    /*static Integer position(List<Employee> list, int id) {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getId() == id) {
                 return i;
             }
         }
         return null;
-    }
+    }*/
     
     static boolean hasId(List<Employee> list, int id){
         Employee emp = list.stream().filter(x-> x.getId() == id).findFirst().orElse(null);
